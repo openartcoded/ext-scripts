@@ -26,11 +26,11 @@ class Script {
       const personalInfo = personalInfoService.get();
       const personalEmail = personalInfo.getOrganizationEmailAddress();
       if (personalEmail) {
-        logger.info("Send email with reminder");
         let subject = "Reminder: expense(s) not paid";
         const expenses = feeService.findAll(event.expenseIds);
 
         if (!expenses.isEmpty()) {
+          logger.info("Send email with reminder");
           let body = "Hello,<br><br>The following expenses are not set to paid:<br>";
           const attachments = new ArrayList();
           body += "<ul>";
