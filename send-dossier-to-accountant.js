@@ -1,5 +1,5 @@
-const EMAIL_BODY = "Bonjour,<br>" +
-  "Vous trouverez ci-joint les factures pour le trimestre.<br>" +
+const EMAIL_BODY = (dossierName) => "Bonjour,<br>" +
+  `Vous trouverez ci-joint les factures pour la période ${dossierName}.<br>` +
   "En cas d'erreur, n'hésitez pas à m'en faire part.<br>" +
   "Bien à vous,<br>" +
   "Nordine Bittich";
@@ -50,7 +50,7 @@ class Script {
             tos.add(personalEmail);
           }
 
-          mailService.sendMail(tos, subject, EMAIL_BODY, false, attachments);
+          mailService.sendMail(tos, subject, EMAIL_BODY(event.name), false, attachments);
           notificationService.sendEvent("Dossier sent to accountant", SCRIPT_NOTIFY, this.id);
         }
 
