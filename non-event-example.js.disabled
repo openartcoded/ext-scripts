@@ -19,7 +19,7 @@ class Script {
     let curr = new Date();
     for (; ;) {
       let now = new Date();
-      if (now.getTime() - curr.getTime() == 10000) { // Basic setTimeOut of 10 seconds
+      if (now.getTime() - curr.getTime() >= 10000) { // Basic setTimeOut of 10 seconds
         // curr = new Date(); uncomment this and comment the break makes it a setInterval
         console.log('hello world');
         break;
